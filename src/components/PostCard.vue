@@ -2,6 +2,9 @@
   <div class="col-md-4 p-2">
     <div class="card">
       <div class="card-header">
+        <div v-if="account.id === post.creatorId" class="on-hover position-absolute" style="right: 1rem; top: 1rem">
+          <i class="mdi mdi-close text-danger f-20 selectable"></i>
+        </div>
         <img :src="post.imgUrl" alt="" class="img-fluid">
       </div>
       <div class="card-body">
@@ -24,14 +27,17 @@
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
 import { postsService } from '../services/PostsService.js'
 import Pop from '../utils/Pop.js'
+import { AppState } from '../AppState.js'
 export default {
   props: {
     post: { type: Object, required: true }
   },
   setup(props) {
     return {
+      account: computed(() => AppState.account),
       async likePost() {
         try {
           await postsService.likePost(props.post.id)
