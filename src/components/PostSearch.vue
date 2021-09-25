@@ -9,10 +9,10 @@
              class="form-control bg-white border-0"
              placeholder="Search Posts"
       >
+      <button class="btn btn-success" type="submit">
+        Search
+      </button>
     </div>
-    <button class="btn btn-success" type="submit">
-      Search
-    </button>
   </form>
 </template>
 

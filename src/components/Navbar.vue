@@ -1,5 +1,79 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 d-flex">
+    <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
+      <div class="d-flex">
+        <img
+          alt="logo"
+          src="../assets/img/Hivemind.png"
+          height="90"
+        />
+        <div class="text-center">
+          <h1>The Hivemind</h1>
+          <h6>Get Assimilated</h6>
+        </div>
+      </div>
+    </router-link>
+    <PostSearch />
+    <div>
+      <button type="button" class="btn btn-success mx-4" data-bs-target="#post-form" data-bs-toggle="modal">
+        Create Post
+      </button>
+    </div>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+      <span class="navbar-text">
+        <button
+          class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+          @click="login"
+          v-if="!user.isAuthenticated"
+        >
+          Login
+        </button>
+
+        <div class="dropdown my-2 my-lg-0" v-else>
+          <div
+            class="dropdown-toggle selectable"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="authDropdown"
+          >
+            <img
+              :src="user.picture"
+              alt="user photo"
+              height="40"
+              class="rounded"
+            />
+            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+          </div>
+          <div
+            class="dropdown-menu p-0 list-group w-100"
+            aria-labelledby="authDropdown"
+          >
+            <router-link :to="{ name: 'Account' }">
+              <div class="list-group-item list-group-item-action hoverable">
+                Manage Account
+              </div>
+            </router-link>
+            <div
+              class="list-group-item list-group-item-action hoverable text-danger"
+              @click="logout"
+            >
+              <i class="mdi mdi-logout"></i>
+              logout
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <Modal id="post-form">
+      <template #modal-title>
+        create a post
+      </template>
+      <template #modal-body>
+        <CreateForm />
+      </template>
+    </Modal>
+  </nav>
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -23,7 +97,7 @@
         form will go here
       </template>
     </Modal>
-  </nav>
+  </nav> -->
 </template>
 
 <script>

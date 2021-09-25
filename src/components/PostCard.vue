@@ -13,18 +13,33 @@
             Profile
           </button>
         </router-link>
+        <div>
+          <button @click="likePost()" type="button" class="btn btn-primary">
+            <b>Likes:</b> {{ post.likes.length }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { postsService } from '../services/PostsService.js'
+import Pop from '../utils/Pop.js'
 export default {
   props: {
     post: { type: Object, required: true }
   },
-  setup() {
-    return {}
+  setup(props) {
+    return {
+      async likePost() {
+        try {
+          await postsService.likePost(props.post.id)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
+    }
   }
 }
 </script>
