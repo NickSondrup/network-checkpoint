@@ -26,6 +26,10 @@
         Spawn a Post
       </button>
     </div>
+    <router-link :to="{name: 'Profile', params: {id: account.id}}">
+      <img :src="account.picture" alt="" class="profile-picture rounded" height="90">
+      <i v-if="account.graduated" class="mdi mdi-school text-light f-20"></i>
+    </router-link>
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
       <span class="navbar-text">
         <button
@@ -43,12 +47,6 @@
             aria-expanded="false"
             id="authDropdown"
           >
-            <img
-              :src="user.picture"
-              alt="user photo"
-              height="40"
-              class="rounded"
-            />
             <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
           </div>
           <div
@@ -90,6 +88,7 @@ import { postsService } from '../services/PostsService.js'
 export default {
   setup() {
     return {
+      account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       async login() {
         AuthService.loginWithPopup()
