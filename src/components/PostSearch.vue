@@ -1,16 +1,16 @@
 <template>
   <form @submit.prevent="findPosts" class="d-flex align-items-end">
-    <div class="form-group">
+    <div class="form-group d-flex">
       <label for="search" class="sr-only"></label>
       <input v-model="query"
              type="text"
              name="search"
              required
-             class="form-control bg-white border-0"
+             class="form-control bg-tyranid-darker text-light border-dark"
              placeholder="Search Posts"
       >
     </div>
-    <div class="btn-group">
+    <div class="btn-group mx-2">
       <button class="btn btn-tyranid" type="submit">
         Search
       </button>
@@ -47,5 +47,8 @@ export default {
 
 .bg-tyranid{
   background-color:  #452c58;
+}
+.bg-tyranid-darker{
+  background-color:  #2e1d3b;
 }
 </style>

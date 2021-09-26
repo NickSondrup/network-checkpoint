@@ -10,7 +10,9 @@
         <div v-if="account.id === post.creatorId" @click="deletePost()" class="on-hover position-absolute" style="right: 1rem; top: 1rem">
           <i class="mdi mdi-close text-danger f-20 selectable"></i>
         </div>
-        <img :src="post.imgUrl" alt="" class="img-fluid rounded">
+        <div class="text-center">
+          <img :src="post.imgUrl" alt="" class="img-fluid rounded post-img">
+        </div>
       </div>
       <div class="card-body">
         <p>{{ post.body }}</p>
@@ -70,6 +72,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.post-img{
+  max-height: 20rem;
+}
 .profile-picture{
   max-height: 100px;
   max-width: 100px;

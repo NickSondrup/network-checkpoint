@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <button @click="getNewerPage()" v-if="postsData.newer" class="btn btn-info">
-      Newer Posts
-    </button>
-    <button @click="getOlderPage()" v-if="postsData.older" class="btn btn-info">
-      Older Posts
-    </button>
-  </div>
-  <div class="home container-fluid">
+  <div class="home">
     <div class="row">
       <PostCard v-for="p in posts" :key="p.id" :post="p" class="m-auto" />
+      <div class="m-2 d-flex justify-content-end">
+        <button @click="getNewerPage()" v-if="postsData.newer" class="btn btn-info mx-1">
+          Newer Posts
+        </button>
+        <button @click="getOlderPage()" v-if="postsData.older" class="btn btn-info mx-1">
+          Older Posts
+        </button>
+      </div>
     </div>
   </div>
 </template>

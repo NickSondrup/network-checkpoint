@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-tyranid border-bottom border-4 border-dark px-3 d-flex">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-tyranid border-bottom border-4 border-dark py-0 px-3 d-flex">
     <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex">
         <img
@@ -7,17 +7,22 @@
           src="../assets/img/Hivemind.png"
           height="90"
         />
-        <div class="text-center px-4">
+        <div class="text-center px-2">
           <h1>The Hivemind</h1>
           <h6>Get Assimilated</h6>
         </div>
+        <img
+          alt="logo"
+          src="../assets/img/Hivemind.png"
+          height="90"
+        />
       </div>
     </router-link>
 
     <PostSearch />
 
-    <div>
-      <button type="button" class="btn btn-info mx-4" data-bs-target="#post-form" data-bs-toggle="modal">
+    <div class="mx-5 px-5">
+      <button type="button" class="btn btn-info mx-5" data-bs-target="#post-form" data-bs-toggle="modal">
         Spawn a Post
       </button>
     </div>
@@ -68,7 +73,7 @@
     </div>
     <Modal id="post-form">
       <template #modal-title>
-        create a post
+        Spawn New Post
       </template>
       <template #modal-body>
         <CreateForm />
@@ -107,6 +112,9 @@ export default {
 
 .bg-tyranid{
   background-color:  #452c58;
+}
+.bg-tyranid-darker{
+  background-color:  #2e1d3b;
 }
 
 .dropdown-menu {

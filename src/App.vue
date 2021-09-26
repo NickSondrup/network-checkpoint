@@ -1,12 +1,12 @@
 <template>
-  <body class="bg-img">
-    <header class="">
+  <body class="bg-img container-fluid">
+    <header class="row">
       <Navbar />
     </header>
     <main class="">
       <router-view />
     </main>
-    <footer class="">
+    <footer class="container-fluid">
       <div class="row text-center">
         <Picture v-for="picture in pictures" :key="picture.id" :picture="picture" />
         <!-- ad pictures will go here -->

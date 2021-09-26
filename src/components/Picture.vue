@@ -1,6 +1,6 @@
 <template>
   <div class="my-1">
-    <img :src="picture.banner" alt="">
+    <img :src="picture.banner" alt="" class="img-fluid">
   </div>
 </template>
 

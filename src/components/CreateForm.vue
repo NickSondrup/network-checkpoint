@@ -1,15 +1,27 @@
 <template>
   <form @submit.prevent="createPost()">
     <div class="form-group">
-      <label for="post-imgUrl">Post a picture!</label>
-      <input v-model="editable.imgUrl" type="text" name="post-imgUrl" id="post-imgUrl">
+      <label for="post-imgUrl"></label>
+      <input v-model="editable.imgUrl"
+             type="text"
+             name="post-imgUrl"
+             id="post-imgUrl"
+             placeholder="Post a picture!"
+             class="form-control bg-tyranid-darker text-light border-dark"
+      >
     </div>
     <div class="form-group">
-      <label for="post-body">What's on your mind?</label>
-      <textarea v-model="editable.body" name="post-body" id="post-body" rows="5"></textarea>
+      <label for="post-body"></label>
+      <textarea v-model="editable.body"
+                name="post-body"
+                id="post-body"
+                rows="5"
+                placeholder="What's on our mind?"
+                class="form-control bg-tyranid-darker text-light border-dark"
+      ></textarea>
     </div>
     <div class="btn-group">
-      <button type="submit" class="btn btn-primary selectable">
+      <button type="submit" class="btn btn-tyranid selectable mt-2">
         <b>Submit</b>
       </button>
     </div>
@@ -46,5 +58,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.btn-tyranid{
+  background-color: #a751cc;
+}
 
+.bg-tyranid{
+  background-color:  #452c58;
+}
+.bg-tyranid-darker{
+  background-color:  #2e1d3b;
+}
 </style>

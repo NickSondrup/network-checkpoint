@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
     <div v-if="profile">
       <div class="row cover-img" :style="{backgroundImage: `url(${profile.coverImg})`}">
-        <div class="col-12 d-flex">
-          <div class="card m-5">
+        <div class="col-12 col-lg-6 d-flex">
+          <div class="card m-5 bg-tyranid text-light p-2">
             <img :src="profile.picture" alt="" height="100" width="100" class="m-auto">
-            <h2>
+            <h2 class="text-center">
               {{ profile.name }}
               <i v-if="profile.graduated" class="mdi mdi-school"></i>
             </h2>
@@ -25,9 +25,11 @@
             <p v-if="profile.class">
               <b>Class:</b> {{ profile.class }}
             </p>
-            <button v-if="account.id === profile.id" class="btn btn-info" data-bs-target="#edit-form" data-bs-toggle="modal">
-              Edit Profile
-            </button>
+            <div class="d-flex justify-content-center">
+              <button v-if="account.id === profile.id" class="btn btn-info" data-bs-target="#edit-form" data-bs-toggle="modal">
+                Edit Profile
+              </button>
+            </div>
           </div>
         </div>
         {{ }}
@@ -39,15 +41,15 @@
       </h4>
     </div>
     <div class="row" v-if="posts.length > 0">
-      <div>
-        <button @click="getNewerPage()" v-if="postsData.newer" class="btn btn-info">
+      <PostCard v-for="p in posts" :key="p.id" :post="p" />
+      <div class="m-2 d-flex justify-content-end">
+        <button @click="getNewerPage()" v-if="postsData.newer" class="btn btn-info mx-1">
           Newer Posts
         </button>
-        <button @click="getOlderPage()" v-if="postsData.older" class="btn btn-info">
+        <button @click="getOlderPage()" v-if="postsData.older" class="btn btn-info mx-1">
           Older Posts
         </button>
       </div>
-      <PostCard v-for="p in posts" :key="p.id" :post="p" />
     </div>
     <div class="row" v-else>
       <h3>No posts yet</h3>
@@ -114,5 +116,15 @@ export default {
 .cover-img{
   background-position: center center;
   background-size: cover;
+}
+.btn-tyranid{
+  background-color: #a751cc;
+}
+
+.bg-tyranid{
+  background-color:  #452c58;
+}
+.bg-tyranid-darker{
+  background-color:  #2e1d3b;
 }
 </style>
