@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-tyranid border-bottom border-4 border-dark py-0 px-3 d-flex">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-tyranid border-bottom border-4 border-dark py-0 px-3 d-flex justify-content-between">
     <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex">
         <img
@@ -26,48 +26,51 @@
         Spawn a Post
       </button>
     </div>
-    <router-link :to="{name: 'Profile', params: {id: account.id}}">
-      <img :src="account.picture" alt="" class="profile-picture rounded" height="90">
-      <i v-if="account.graduated" class="mdi mdi-school text-light f-20"></i>
-    </router-link>
-    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
-      <span class="navbar-text">
-        <button
-          class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
-          @click="login"
-          v-if="!user.isAuthenticated"
-        >
-          Login
-        </button>
 
-        <div class="dropdown my-2 my-lg-0" v-else>
-          <div
-            class="dropdown-toggle selectable"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            id="authDropdown"
+    <div class="d-flex">
+      <router-link :to="{name: 'Profile', params: {id: account.id}}">
+        <img :src="account.picture" alt="" class="profile-picture rounded" height="90">
+        <i v-if="account.graduated" class="mdi mdi-school text-light f-20"></i>
+      </router-link>
+
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+        <span class="navbar-text">
+          <button
+            class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+            @click="login"
+            v-if="!user.isAuthenticated"
           >
-            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
-          </div>
-          <div
-            class="dropdown-menu p-0 list-group w-100"
-            aria-labelledby="authDropdown"
-          >
-            <router-link :to="{ name: 'Account' }">
-              <div class="list-group-item list-group-item-action hoverable">
-                Manage Account
-              </div>
-            </router-link>
+            Login
+          </button>
+          <div class="dropdown my-2 my-lg-0" v-else>
             <div
-              class="list-group-item list-group-item-action hoverable text-danger"
-              @click="logout"
+              class="dropdown-toggle selectable"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="authDropdown"
             >
-              <i class="mdi mdi-logout"></i>
-              logout
+              <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+            </div>
+            <div
+              class="dropdown-menu p-0 list-group w-100"
+              aria-labelledby="authDropdown"
+            >
+              <router-link :to="{ name: 'Account' }">
+                <div class="list-group-item list-group-item-action hoverable">
+                  Manage Account
+                </div>
+              </router-link>
+              <div
+                class="list-group-item list-group-item-action hoverable text-danger"
+                @click="logout"
+              >
+                <i class="mdi mdi-logout"></i>
+                logout
+              </div>
             </div>
           </div>
-        </div>
-      </span>
+        </span>
+      </div>
     </div>
     <Modal id="post-form">
       <template #modal-title>
