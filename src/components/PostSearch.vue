@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="findPosts" class bg-white>
+  <form @submit.prevent="findPosts" class="d-flex align-items-end">
     <div class="form-group">
       <label for="search" class="sr-only"></label>
       <input v-model="query"
@@ -9,7 +9,9 @@
              class="form-control bg-white border-0"
              placeholder="Search Posts"
       >
-      <button class="btn btn-success" type="submit">
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-tyranid" type="submit">
         Search
       </button>
     </div>
@@ -39,5 +41,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.btn-tyranid{
+  background-color: #a751cc;
+}
 
+.bg-tyranid{
+  background-color:  #452c58;
+}
 </style>

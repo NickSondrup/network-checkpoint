@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createPost">
+  <form @submit.prevent="createPost()">
     <div class="form-group">
       <label for="post-imgUrl">Post a picture!</label>
       <input v-model="editable.imgUrl" type="text" name="post-imgUrl" id="post-imgUrl">

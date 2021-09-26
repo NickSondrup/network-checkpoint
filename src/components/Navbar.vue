@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 d-flex">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-tyranid border-bottom border-4 border-dark px-3 d-flex">
     <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex">
         <img
@@ -7,16 +7,18 @@
           src="../assets/img/Hivemind.png"
           height="90"
         />
-        <div class="text-center">
+        <div class="text-center px-4">
           <h1>The Hivemind</h1>
           <h6>Get Assimilated</h6>
         </div>
       </div>
     </router-link>
+
     <PostSearch />
+
     <div>
-      <button type="button" class="btn btn-success mx-4" data-bs-target="#post-form" data-bs-toggle="modal">
-        Create Post
+      <button type="button" class="btn btn-info mx-4" data-bs-target="#post-form" data-bs-toggle="modal">
+        Spawn a Post
       </button>
     </div>
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
@@ -73,31 +75,6 @@
       </template>
     </Modal>
   </nav>
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <router-link @click="getPosts()" class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
-      </div>
-    </router-link>
-    <PostSearch />
-    <div>
-      <button type="button" class="btn btn-success mx-4" data-bs-target="#post-form" data-bs-toggle="modal">
-        Create Post
-      </button>
-    </div>
-    <Modal id="post-form">
-      <template #modal-title>
-        create a post
-      </template>
-      <template #modal-body>
-        form will go here
-      </template>
-    </Modal>
-  </nav> -->
 </template>
 
 <script>
@@ -124,6 +101,14 @@ export default {
 </script>
 
 <style scoped>
+.btn-tyranid{
+  background-color: #a751cc;
+}
+
+.bg-tyranid{
+  background-color:  #452c58;
+}
+
 .dropdown-menu {
   user-select: none;
   display: block;

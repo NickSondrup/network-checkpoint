@@ -9,7 +9,7 @@
   </div>
   <div class="home container-fluid">
     <div class="row">
-      <PostCard v-for="p in posts" :key="p.id" :post="p" />
+      <PostCard v-for="p in posts" :key="p.id" :post="p" class="m-auto" />
     </div>
   </div>
 </template>

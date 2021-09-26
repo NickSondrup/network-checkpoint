@@ -20,6 +20,7 @@ class PostsService {
     const res = await api.get(`api/posts/?query=${query}`)
     logger.log('findPostByQuery', res)
     AppState.posts = res.data.posts.map(p => new Post(p))
+    AppState.postsData = res.data
   }
 
   async createPost(newPost) {
@@ -29,8 +30,8 @@ class PostsService {
   }
 
   async likePost(postId) {
-    await api.post(`api/posts/${postId}/like`)
-    this.getPosts()
+    const res = await api.post(`api/posts/${postId}/like`)
+    logger.log('like res', res)
   }
 
   async getOlderPage() {
@@ -49,6 +50,12 @@ class PostsService {
     const res = await api.get(`api/posts?page=${AppState.currentPage}`)
     AppState.postsData = res.data
     AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async deletePost(postId) {
+    const res = await api.delete(`api/posts/${postId}`)
+    logger.log('delorte', res)
+    AppState.posts = AppState.posts.filter(p => p.id !== postId)
   }
 }
 
