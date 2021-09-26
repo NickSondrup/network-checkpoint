@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div v-if="posts">
     <div class="row">
-      <PostCard v-for="p in posts" :key="p.id" :post="p" class="m-auto" />
+      <PostCard v-for="p in posts" :key="p.id" :post="p" />
       <div class="m-2 d-flex justify-content-end">
         <button @click="getNewerPage()" v-if="postsData.newer" class="btn btn-info mx-1">
           Newer Posts
@@ -11,6 +11,9 @@
         </button>
       </div>
     </div>
+  </div>
+  <div v-else>
+    .....loading.....
   </div>
 </template>
 
