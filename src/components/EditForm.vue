@@ -117,7 +117,7 @@ export default {
         try {
           await profilesService.editProfile(editable.value)
           editable.value = {}
-          Pop.toast('Profile edited', 'success')
+          Pop.toast('Profile Mutated', 'success')
           const modal = Modal.getInstance(document.getElementById('edit-form'))
           modal.hide()
         } catch (error) {

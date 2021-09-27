@@ -43,7 +43,7 @@ export default {
         try {
           await postsService.createPost(editable.value)
           editable.value = {}
-          Pop.toast('Post Created!', 'success')
+          Pop.toast('Post Spawned!', 'success')
           const modal = Modal.getInstance(document.getElementById('post-form'))
           modal.hide()
         } catch (error) {

@@ -27,7 +27,7 @@
             </p>
             <div class="d-flex justify-content-center">
               <button v-if="account.id === profile.id" class="btn btn-info" data-bs-target="#edit-form" data-bs-toggle="modal">
-                Edit Profile
+                Mutate Profile
               </button>
             </div>
           </div>
@@ -56,7 +56,7 @@
     </div>
     <Modal id="edit-form">
       <template #modal-title>
-        Edit Profile
+        Mutate Profile
       </template>
       <template #modal-body>
         <EditForm />
