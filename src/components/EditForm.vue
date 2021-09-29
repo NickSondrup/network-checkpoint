@@ -103,8 +103,8 @@ import { Profile } from '../models/Profile.js'
 import { watchEffect } from '@vue/runtime-core'
 export default {
   props: {
-    // eslint-disable-next-line vue/require-default-prop
-    account: { type: Profile }
+
+    account: { type: Profile, default: () => new Profile() }
   },
   setup(props) {
     const editable = ref('')

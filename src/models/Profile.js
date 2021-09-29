@@ -1,5 +1,5 @@
 export class Profile {
-  constructor(profileData) {
+  constructor(profileData = {}) {
     this.picture = profileData.picture
     this.bio = profileData.bio
     this.coverImg = profileData.coverImg

@@ -49,7 +49,7 @@
               aria-expanded="false"
               id="authDropdown"
             >
-              <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+              <span class="text-success lighten-30">{{ user.name }}</span>
             </div>
             <div
               class="dropdown-menu p-0 list-group w-100"
